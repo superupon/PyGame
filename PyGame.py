@@ -35,14 +35,43 @@ class Content:
         print 'rotate'
         self._line = self._line[::-1]
 
+    def clear_last_step(self, column):
+        last_fall_count = self._fall_count
+        if last_fall_count < len(self._line):
+            for i in range(last_fall_count):
+                self._content[i][column] = 0
+        else:
+            for i in range(len(self._line)):
+                self._content[i + last_fall_count - len(self._line)][column] = 0
+
+    def area_is_clear(self, column):
+        is_clear = True
+        last_fall_count = self._fall_count - 1
+        if last_fall_count < len(self._line):
+            for i in range(last_fall_count):
+                if self._content[i][column] != 0:
+                    is_clear = False
+        else:
+            for i in range(len(self._line)):
+                if self._content[i + last_fall_count - len(self._line)][column] != 0:
+                    is_clear = False
+        return is_clear
+
     def left(self):
-        self.column = self.column - 1
+        if self.area_is_clear(self._column - 1):
+            self._column = self._column - 1
+            self._fall_count = self._fall_count - 1
+            self.step()
+            self.clear_last_step(self._column + 1)
 
     def right(self):
-        self.column = self.column + 1
+        if self.area_is_clear(self._column + 1):
+            self._column = self._column + 1
+            self._fall_count = self._fall_count - 1
+            self.step()
+            self.clear_last_step(self._column - 1)
 
     def erase_row(self, row):
-        print 'erase'
         for column in range(len(self._content[0])):
             self._content[row][column] = 0
             for ro in range(row):
@@ -85,9 +114,10 @@ class Field:
             print "|" + 3*self._column*" " + "|"
         print "-" + 3*self._column*"-" + "-"
 
+    
 
-row_number = input()
-column_number = input()
+#row_number = input()
+#column_number = input()
 # f = Field(row_number, column_number)
 # f.draw()
 # while 1:
@@ -95,37 +125,47 @@ column_number = input()
 #     print ""
 #     time.sleep(3)
 
-c = Content(4, 4)
-c.printContent()
-c.add_line(1, [2,4])
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.add_line(3, [5, 2,4])
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.rotate()
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.step()
-c.printContent()
-c.step()
-c.erase_row(3)
-c.printContent()
-c.erase_row(3)
-c.printContent()
+# c = Content(4, 4)
+# c.printContent()
+# c.add_line(1, [2,4])
+# c.step()
+# c.printContent()
+# c.step()
+# c.printContent()
+# c.step()
+# c.printContent()
+# c.step()
+# c.printContent()
+# c.step()
+# c.printContent()
+# c.step()
+# c.printContent()
+
+# c.add_line(3, [5, 2,4])
+# c.step()
+# c.printContent()
+# c.step()
+# c.printContent()
+# c.rotate()
+# c.step()
+# c.printContent()
+
+# print "left"
+# c.left()
+# c.printContent()
+
+# c.step()
+# c.printContent()
+# c.step()
+# c.printContent()
+# c.step()
+# c.printContent()
+# c.step()
+# print c.area_is_clear(2)
+# print c.area_is_clear(1)
+# c.printContent()
+# Test erase row
+# c.erase_row(3)
+# c.printContent()
+# c.erase_row(3)
+# c.printContent()
