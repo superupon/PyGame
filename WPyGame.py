@@ -30,7 +30,7 @@ if __name__ == "__main__":
                 if event.__dict__['key'] == K_UP:
                     print 'add'
                     content.add_line(2, [1,2])
-                if event.__dict__['key'] == K_r:
+                if event.__dict__['key'] == K_SPACE:
                     content.rotate()
                 if event.__dict__['key'] == K_LEFT:
                     content.left()
