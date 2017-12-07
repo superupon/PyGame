@@ -42,4 +42,4 @@ class Drawer:
         for row in range(len(content)):
             space = 1
             for column in range(len(content[0])):
-                pygame.draw.rect(self._surface, options[content[row][column]], (210 + column * 30 + space * column, 60 + row*25 + space*row, 30, 25))
+                pygame.draw.rect(self._surface, options[content[row][column]], (210 + column * 30 + space * column, 100 + row*25 + space*row, 30, 25))
