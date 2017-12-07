@@ -16,8 +16,6 @@ if __name__ == "__main__":
     pygame.init()
     clock = pygame.time.Clock() 
     window = pygame.display.set_mode((640, 480))
-    x = 0
-    y = 0
     count = 0
     pygame.display.set_caption("PyGame")
     content = Content(12, 6)
