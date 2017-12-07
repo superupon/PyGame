@@ -3,16 +3,6 @@ from pygame.locals import *
 from PyGame import *
 from Drawer import *
 
-class WindowField:
-    def __init__(self, row, column):
-        self._row = row
-        self._column = column
-
-    def draw(self):
-        for i in range(self._row):
-            print "|" + 3*self._column*" " + "|"
-        print "-" + 3*self._column*"-" + "-"
-
 if __name__ == "__main__":
     pygame.init()
     clock = pygame.time.Clock() 
