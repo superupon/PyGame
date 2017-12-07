@@ -33,8 +33,9 @@ class Content:
 
     # rotate the current falling line
     def rotate(self):
-        print 'rotate'
+        self._fall_count = self._fall_count - 1
         self._line = self._line[::-1]
+        self.step()
 
     def clear_last_step(self, column):
         last_fall_count = self._fall_count
