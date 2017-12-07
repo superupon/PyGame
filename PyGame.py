@@ -24,7 +24,8 @@ class Content:
             else:
                 for i in range(len(self._line)):
                     self._content[i + self._fall_count - len(self._line)][self._column] = self._line[i]
-                self._content[self._fall_count - len(self._line) - 1][self._column] = 0
+                if self._fall_count - len(self._line) - 1 >= 0:
+                    self._content[self._fall_count - len(self._line) - 1][self._column] = 0
             self._fall_count = self._fall_count + 1
 
         if self.isLanded():
