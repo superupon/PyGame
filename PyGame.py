@@ -62,15 +62,15 @@ class Content:
         if self.area_is_clear(self._column - 1):
             self._column = self._column - 1
             self._fall_count = self._fall_count - 1
-            self.step()
             self.clear_last_step(self._column + 1)
+            self.step()
 
     def right(self):
         if self.area_is_clear(self._column + 1):
             self._column = self._column + 1
             self._fall_count = self._fall_count - 1
-            self.step()
             self.clear_last_step(self._column - 1)
+            self.step()
 
     def erase_row(self, row):
         for column in range(len(self._content[0])):
