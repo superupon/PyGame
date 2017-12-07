@@ -17,15 +17,15 @@ class Drawer:
         self._surface = surface
 
     def draw_field(self):
-        pygame.draw.rect(self._surface, Drawer.GREEN_COLOR, (200, 50, 200, 400), 10)
+        pygame.draw.rect(self._surface, Drawer.GREEN_COLOR, (200, 90, 200, 340), 10)
     
     def draw_text(self):
         font = pygame.font.Font(None, 36)
         game_title = font.render("PyGame", 1, Drawer.PINK_COLOR)
-        font = pygame.font.Font(None, 20)
+        font = pygame.font.Font(None, 30)
         remind = font.render("Press Space for rotate, Left for left move, Right for right move.", 1, Drawer.WHITE_COLOR)
         self._surface.blit(game_title, (10, 10))
-        self._surface.blit(remind, (120, 30))
+        self._surface.blit(remind, (10, 40))
 
     def draw_content(self, content):
         options = {1 : Drawer.PINK_COLOR,
@@ -42,4 +42,4 @@ class Drawer:
         for row in range(len(content)):
             space = 1
             for column in range(len(content[0])):
-                pygame.draw.rect(self._surface, options[content[row][column]], (210 + column * 30 + space * column, 100 + row*25 + space*row, 30, 25))
+                pygame.draw.rect(self._surface, options[content[row][column]], (208 + column * 30 + space * column, 100 + row*25 + space*row, 30, 25))

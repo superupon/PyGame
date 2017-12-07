@@ -11,6 +11,7 @@ if __name__ == "__main__":
     # Use Drawer Class to deal with drawing
     drawer = Drawer(window)
     count = 0
+    new_line = True
     pygame.display.set_caption("PyGame")
     content = Content(12, 6)
     window.fill(Drawer.BG_COLOR)
@@ -40,8 +41,16 @@ if __name__ == "__main__":
         if count == 100:
             count = 0
             content.step()
+            if new_line:
+                random_column = random.randint(0, 5)
+                random_list = random.sample(range(1, 9), random.randint(1,5))
+                content.add_line(random_column, random_list)
+            if content.is_landed():
+                new_line = True
+            else:
+                new_line = False
 
         if content.is_landed():
-            pygame.draw.line(window, Drawer.YELLOW_COLOR, (210, 430), (390, 430), 8) 
+            pygame.draw.line(window, Drawer.YELLOW_COLOR, (210, 418), (390, 418), 6) 
         else:
-            pygame.draw.line(window, Drawer.BG_COLOR, (210, 430), (390, 430), 8)
+            pygame.draw.line(window, Drawer.BG_COLOR, (210, 418), (390, 418), 6)
