@@ -22,7 +22,7 @@ if __name__ == "__main__":
     count = 0
     pygame.display.set_caption("PyGame")
     content = Content(12, 6)
-    window.fill((60, 100, 200))
+    window.fill(Drawer.BG_COLOR)
     while True:
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -30,7 +30,6 @@ if __name__ == "__main__":
                 sys.exit()
             if event.type == KEYDOWN:
                 if event.__dict__['key'] == K_UP:
-                    print 'add'
                     content.add_line(2, [1,2])
                 if event.__dict__['key'] == K_SPACE:
                     content.rotate()
