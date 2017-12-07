@@ -59,14 +59,14 @@ class Content:
         return is_clear
 
     def left(self):
-        if self.area_is_clear(self._column - 1):
+        if self.area_is_clear(self._column - 1) and not self._landed:
             self._column = self._column - 1
             self._fall_count = self._fall_count - 1
             self.clear_last_step(self._column + 1)
             self.step()
 
     def right(self):
-        if self.area_is_clear(self._column + 1):
+        if self.area_is_clear(self._column + 1) and not self._landed:
             self._column = self._column + 1
             self._fall_count = self._fall_count - 1
             self.clear_last_step(self._column - 1)
