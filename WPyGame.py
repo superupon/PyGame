@@ -38,7 +38,5 @@ if __name__ == "__main__":
         clock.tick(30)
         count = count + 1
         if count == 100:
-            print "step"
             count = 0
             content.step()
-            content.printContent()
