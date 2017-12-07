@@ -1,6 +1,7 @@
 import sys, pygame
 from pygame.locals import *
 from PyGame import *
+from Drawer import *
 
 class WindowField:
     def __init__(self, row, column):
@@ -16,6 +17,7 @@ if __name__ == "__main__":
     pygame.init()
     clock = pygame.time.Clock() 
     window = pygame.display.set_mode((640, 480))
+    drawer = Drawer(window)
     count = 0
     pygame.display.set_caption("PyGame")
     content = Content(12, 6)
@@ -35,6 +37,7 @@ if __name__ == "__main__":
                 if event.__dict__['key'] == K_RIGHT:
                     content.right()
 
+        drawer.draw_text()
         #window.fill((60, 100, 200))
         pygame.draw.rect(window, (255,155,255), (200, 50, 200, 400), 10)
         pygame.display.update()
