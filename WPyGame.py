@@ -40,3 +40,9 @@ if __name__ == "__main__":
         if count == 100:
             count = 0
             content.step()
+
+        if content.is_landed():
+            print "landed"
+            pygame.draw.line(window, Drawer.YELLOW_COLOR, (210, 440), (390, 440), 5) 
+        else:
+            pygame.draw.line(window, Drawer.BG_COLOR, (210, 440), (390, 440), 5)

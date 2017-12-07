@@ -109,6 +109,9 @@ class Content:
         row = len(self._content)
         column = len(self._content[0])
         self._content = [[0 for col in range(column)] for ro in range(row)]
+
+    def is_landed(self):
+        return self._landed
         
     def isLanded(self):
         return len(self._content) < self._fall_count or self._content[self._fall_count-1][self._column] != 0 
