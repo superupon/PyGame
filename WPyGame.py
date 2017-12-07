@@ -41,6 +41,7 @@ if __name__ == "__main__":
         if count == 100:
             count = 0
             content.step()
+            # new line will be created in the next step after landed
             if new_line:
                 random_column = random.randint(0, 5)
                 random_list = random.sample(range(1, 9), random.randint(1,5))
