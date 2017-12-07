@@ -17,10 +17,12 @@ if __name__ == "__main__":
     pygame.init()
     clock = pygame.time.Clock() 
     window = pygame.display.set_mode((640, 480))
+    # Use Drawer Class to deal with drawing
     drawer = Drawer(window)
     count = 0
     pygame.display.set_caption("PyGame")
     content = Content(12, 6)
+    window.fill((60, 100, 200))
     while True:
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -38,7 +40,6 @@ if __name__ == "__main__":
                     content.right()
 
         drawer.draw_text()
-        #window.fill((60, 100, 200))
         pygame.draw.rect(window, (255,155,255), (200, 50, 200, 400), 10)
         pygame.display.update()
         clock.tick(30)
