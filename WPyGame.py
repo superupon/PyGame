@@ -40,7 +40,7 @@ if __name__ == "__main__":
                     content.right()
 
         drawer.draw_text()
-        pygame.draw.rect(window, (255,155,255), (200, 50, 200, 400), 10)
+        drawer.draw_field()
         pygame.display.update()
         clock.tick(30)
         count = count + 1
