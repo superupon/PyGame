@@ -41,6 +41,7 @@ if __name__ == "__main__":
 
         drawer.draw_text()
         drawer.draw_field()
+        drawer.draw_content(content)
         pygame.display.update()
         clock.tick(30)
         count = count + 1
@@ -49,4 +50,3 @@ if __name__ == "__main__":
             count = 0
             content.step()
             content.printContent()
-        content.drawContent(window)

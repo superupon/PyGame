@@ -96,21 +96,8 @@ class Content:
             print row
         print ""
     
-    def drawContent(self, window):
-        for row in range(len(self._content)):
-            space = 1
-            for column in range(len(self._content[0])):
-                if self._content[row][column] == 1:
-                    pygame.draw.rect(window, (255,155,100), (210 + column *30 + space*column, 60 + row*25 + space*row, 30, 25))
-                if self._content[row][column] == 2:
-                    pygame.draw.rect(window, (255,100,100), (210 + column *30+ space*column, 60 + row*25+ space*row, 30, 25))
-                if self._content[row][column] == 3:
-                    pygame.draw.rect(window, (255,255,100), (210 + column *30+ space*column, 60 + row*25+ space*row, 30, 25))
-                if self._content[row][column] == 4:
-                    pygame.draw.rect(window, (255,55,100), (210 + row *30, 60 + column*55, 30, 25))
-                if self._content[row][column] == 0:
-                    pygame.draw.rect(window, (255,0,0), (210 + column *30+ space*column, 60 + row*25+ space*row, 30, 25))
-
+    def get_content(self):
+        return self._content
 
     def clear_content(self):
         row = len(self._content)
