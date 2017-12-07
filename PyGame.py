@@ -58,15 +58,21 @@ class Content:
                     is_clear = False
         return is_clear
 
+    def is_valid_column(self, column):
+        if column < 6 and column >= 0:
+            return True
+        else:
+            return False
+
     def left(self):
-        if self.area_is_clear(self._column - 1) and not self._landed:
+        if self.area_is_clear(self._column - 1) and not self._landed and self.is_valid_column(self._column - 1):
             self._column = self._column - 1
             self._fall_count = self._fall_count - 1
             self.clear_last_step(self._column + 1)
             self.step()
 
     def right(self):
-        if self.area_is_clear(self._column + 1) and not self._landed:
+        if self.area_is_clear(self._column + 1) and not self._landed and self.is_valid_column(self._column + 1):
             self._column = self._column + 1
             self._fall_count = self._fall_count - 1
             self.clear_last_step(self._column - 1)
