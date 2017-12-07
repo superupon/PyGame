@@ -2,6 +2,7 @@ import sys, pygame
 from pygame.locals import *
 from PyGame import *
 from Drawer import *
+import random
 
 if __name__ == "__main__":
     pygame.init()
@@ -20,7 +21,9 @@ if __name__ == "__main__":
                 sys.exit()
             if event.type == KEYDOWN:
                 if event.__dict__['key'] == K_UP:
-                    content.add_line(2, [1,2])
+                    random_column = random.randint(0, 5)
+                    random_list = random.sample(range(1, 9), random.randint(1,5))
+                    content.add_line(random_column, random_list)
                 if event.__dict__['key'] == K_SPACE:
                     content.rotate()
                 if event.__dict__['key'] == K_LEFT:
